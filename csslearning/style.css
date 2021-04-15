@@ -1,0 +1,46 @@
+h1{
+   color: darkgreen;
+   text-align: center;
+   text-decoration:underline;
+
+}
+
+
+/*h2{
+   color:rgb( 168, 50, 157);
+    text-align: left;
+    text-decoration: dotted
+;
+}*/
+
+body{
+     background-color: darkblue;
+    }
+
+
+
+.first{
+      background-color: darkgoldenrod;
+       }
+
+ .second{
+        background-color: darkcyan;
+       }
+
+ .third{
+         background-color: darkred;
+       }     
+
+
+div{
+    color: deeppink;
+    float: left;
+    width: 30%;
+    height: 600px;
+}
+
+img{
+    width: 100%;
+   }
+
+

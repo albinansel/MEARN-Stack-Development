@@ -1,0 +1,118 @@
+.image{
+    position: relative;
+    left: 350px;
+    top: 20px;
+    height: 500px;
+    
+}
+
+.box{
+     /* border: 2px solid rgb(223, 223, 237); */
+     height: 350px;
+     width: 300px;
+     position: relative;
+     top: -5px;
+     left: 20px;
+     align-items: center;
+}
+
+.logo{
+    position: relative;
+     top: 25px;
+     left: 50px;
+     height: 60px;
+     width: 180px;
+}
+.name{
+    position: relative;
+     top: 25px;
+}
+
+.pass{
+    position: relative;
+     top: -3px;
+     
+}
+
+.login{
+    width:298px;
+
+}
+
+.or{
+    text-align: center;
+    font-size: small;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    position: relative;
+    top: 5px;
+}
+
+.face{
+    text-align: center;
+    font-size: 14px;
+    color: rgb(7, 7, 77);
+    position: relative;
+    top: -2px;
+}
+
+.fb{
+    height: 20px;
+}
+
+.forgot{
+    text-align: center;
+    font-size: 12px;
+    position: relative;
+    top: -10px;
+}
+
+.box2{
+    /* border: 2px solid rgb(223, 223, 237); */
+     height: 60px;
+     width: 300px;
+     position: relative;
+     top: -4px;
+     left: 20px;
+}
+
+.signup{
+    text-align: center;
+    position: relative;
+    top: 10px;
+}
+.box3{
+     text-align: center;
+     font-size: 14px;
+     /* border: 2px solid rgb(223, 223, 237); */
+     height: 60px;
+     width: 300px;
+     position: relative;
+     top: 28px;
+     left: 40px;
+}
+
+.main{
+        border: 2px solid rgb(223, 223, 237);
+        height: 355px;
+        width: 340px;
+        position: relative;
+        top: 25px;
+        left: 22px;
+        align-items: center;
+   }
+
+   .main2{
+    border: 2px solid rgb(223, 223, 237);
+    height: 50px;
+    width: 340px;
+    position: relative;
+    top: 30px;
+    left: 22px;
+   }
+
+   .bottum{
+       text-align: center;
+       position: relative;
+       top: 40px;
+       font-size: small;
+   }
