@@ -1,1 +1,2 @@
 var num;
+var arr;
