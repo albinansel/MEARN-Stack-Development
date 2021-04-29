@@ -1,0 +1,46 @@
+h1{
+    text-align: center;
+    background-color: cornsilk;
+}
+.bg{
+    background-color: cornflowerblue;
+}
+.bodr{
+    background-color: cornsilk;
+    border-style: solid;
+    border-color: cornflowerblue;
+}
+
+.image{
+    position: relative;
+    left: 200px;
+    top: 0px;
+    height: 500px;
+    
+}
+
+.name{
+    position: relative;
+     top: 25px;
+     width: 400px;
+}
+
+
+.login{
+    width:200px;
+    position: relative;
+    top: 40px;
+
+}
+.bal{
+    width:200px;
+    position: relative;
+    top: 40px;
+}
+
+.or{
+    font-size: small;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    position: relative;
+    top: 50px;
+    left: 90px;
