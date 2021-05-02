@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="calculator.css">
+
+</head>
+
+<body>
+    <h1>Calculator</h1>
+    <div class="box">
+        <form action="">
+            
+            <input type="text" class="txt" id="inpt">
+
+            <table class="tbl">
+                <tr>
+                    <th><input class="btn red" type="button" onclick="clearBox()" value="C"></th>
+                    <th><input class="btn vlt" type="button" onclick="cancelElement()" value="<"></th>
+                    <th><input class="btn vlt" type="button" onclick="displayBox('%')" value="%"></th>
+                    <th><input class="btn vlt" type="button" onclick="displayBox('/')" value="/"></th>
+                </tr>
+
+
+                <tr>
+                    <th><input class="btn" type="button" onclick="displayBox('7')" value="7"></th>
+                    <th><input class="btn" type="button" onclick="displayBox('8')" value="8"></th>
+                    <th><input class="btn" type="button" onclick="displayBox('9')" value="9"></th>
+                    <th><input class="btn vlt" type="button" onclick="displayBox('*')" value="x"></th>
+                </tr>
+
+                <tr>
+                    <th><input class="btn" type="button" onclick="displayBox('4')" value="4"></th>
+                    <th><input class="btn" type="button" onclick="displayBox('5')" value="5"></th>
+                    <th><input class="btn" type="button" onclick="displayBox('6')" value="6"></th>
+                    <th><input class="btn vlt" type="button" onclick="displayBox('-')" value="-"></th>
+                </tr>
+
+                <tr>
+                    <th><input class="btn" type="button" onclick="displayBox('1')" value="1"></th>
+                    <th><input class="btn" type="button" onclick="displayBox('2')" value="2"></th>
+                    <th><input class="btn" type="button" onclick="displayBox('3')" value="3"></th>
+                    <th><input class="btn vlt" type="button" onclick="displayBox('+')" value="+"></th>
+                </tr>
+                <tr>
+                    <th><input class="btn" type="button" onclick="displayBox('0')" value="0"></th>
+                    <th><input class="btn" type="button" onclick="displayBox('00')" value="00"></th>
+                    <th><input class="btn" type="button" onclick="displayBox('.')" value="."></th>
+                    <th><input class="btn ylw" type="button" onclick="evaluateExpression()" value="="></th>
+                </tr>
+
+
+            </table>
+        </form>
+    </div>
+</body>
+<script src="calculator.js"></script>
+
+</html>
