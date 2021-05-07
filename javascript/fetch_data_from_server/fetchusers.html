@@ -16,7 +16,7 @@
     <div id="resultarea">
 
     </div>
-
+ <a href=""></a>
 </body>
 
 <script>
@@ -25,7 +25,7 @@
 function populate(dataset){
 
     let html_val= ``;
-    for(users of dataset){
+    for(let users of dataset){
            html_val+=`<p> id:${users.id} name:${users.name} username:${users.username}</p>`
     }
     resultarea.innerHTML=html_val;
