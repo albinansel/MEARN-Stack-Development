@@ -9,7 +9,7 @@ export class LoginComponent implements OnInit {
 
   aim = "Your perfect banking partner";
 
-  accno = "Account number please";
+  accnum = "Account number please";
   pswd = "";
 
   accountDetails: any = {
@@ -24,22 +24,22 @@ export class LoginComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  accnoChange(event:any){
-    this.accno=event.target.value;
-    console.log(this.accno);
-  }
+  // accnoChange(event:any){
+  //   this.accno=event.target.value;
+  //   console.log(this.accno);
+  // }
 
-  pswdChange(event:any){
-    this.pswd=event.target.value;
-    console.log(this.pswd);
-  }
+  // pswdChange(event:any){
+  //   this.pswd=event.target.value;
+  //   console.log(this.pswd);
+  // }
 
 
-  login() {
+  login(a:any,p:any) {
     //  alert("Login Clicked");
 
-    var acno = this.accno;
-    var pswd = this.pswd;
+    var acno = a.value;
+    var pswd = p.value;
     let users = this.accountDetails;
 
     if (acno in users) {

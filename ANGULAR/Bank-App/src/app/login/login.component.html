@@ -6,10 +6,9 @@
 
              <h5>{{aim}}</h5>
 
-            <input type="text" id="acno" [value]="accno"  (change)="accnoChange($event)" placeholder="enter account number"><br>
-            <input type="text" name="" id="uname"   placeholder="enter username"><br>
-            <input type="text" id="pwd"  (change)="pswdChange($event)" placeholder="enter password">
-            <button class="btn btn-success" (click)="login()">login</button><br><br>
+            <input type="text" id="acno" [value]="accnum"  #accno placeholder="enter account number"><br>
+            <input type="text" id="pwd"  #pswd placeholder="enter password">
+            <button class="btn btn-success" (click)="login(accno,pswd)">login</button><br><br>
 
             <input  type="button" class="btn btn-success" value="Create New Account">
 
