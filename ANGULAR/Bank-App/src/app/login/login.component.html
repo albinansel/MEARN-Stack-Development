@@ -1,0 +1,19 @@
+
+<div class="container">
+    <div class="row">
+        <div class="col-4"></div>
+        <div class="col-4">
+
+             <h5>{{aim}}</h5>
+
+            <input type="text" id="acno" [value]="accno"  (change)="accnoChange($event)" placeholder="enter account number"><br>
+            <input type="text" name="" id="uname"   placeholder="enter username"><br>
+            <input type="text" id="pwd"  (change)="pswdChange($event)" placeholder="enter password">
+            <button class="btn btn-success" (click)="login()">login</button><br><br>
+
+            <input  type="button" class="btn btn-success" value="Create New Account">
+
+        </div>
+        <div class="col-4"></div>
+    </div>
+</div>
