@@ -59,7 +59,6 @@ export class LoginComponent implements OnInit {
   }
 
   register(){
-    alert("register clicked")
     this.router.navigateByUrl("register")
   }
 
