@@ -20,38 +20,18 @@ export class LoginComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  // accnoChange(event:any){
-  //   this.accno=event.target.value;
-  //   console.log(this.accno);
-  // }
-
-  // pswdChange(event:any){
-  //   this.pswd=event.target.value;
-  //   console.log(this.pswd);
-  // }
-
-
+  
   login() {
-    //  alert("Login Clicked");
 
     var acno = this.acno;
     var pswd = this.pswd;
-    let users = this.dataService.accountDetails;
-
-    if (acno in users) {
-      if (pswd == users[acno]["password"]) {
-        alert("Login Successful")
-        this.router.navigateByUrl("dashboard")
-      }
-      else {
-        alert("Incorrect Pasword")
-      }
-
-    }
-    else {
-      alert("invalid Account")
+    const result=this.dataService.login(acno,pswd)
+    if(result){
+      alert("Login Successful")
+      this.router.navigateByUrl("dashboard")
     }
   }
+
 
   register(){
     this.router.navigateByUrl("register")

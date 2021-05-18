@@ -24,16 +24,19 @@ export class RegisterComponent implements OnInit {
     var uname=this.uname;
     var acno=this.acno;
     var pswd=this.pswd;
-    let users=this.dataservice.accountDetails;
-    if (acno in users) {
-      alert("User Exists....Please Log In")
-    }
-    else{
-      users[acno]={acno, username:uname, password:pswd ,balance:0}
+    const result=this.dataservice.register(uname,acno,pswd);
+    if (result) {
       alert("successfully Registered...")
       this.router.navigateByUrl('');
     }
-
+    else{
+      alert("User Exists... Please login")
+    }
   }
+
+
+
+
+
 
 }

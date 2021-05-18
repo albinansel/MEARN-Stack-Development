@@ -15,4 +15,38 @@ export class DataService {
 
 
   constructor() { }
+
+  register(uname: any, acno: any, pswd: any) {
+    let users = this.accountDetails;
+    if (acno in users) {
+      return false
+    }
+    else {
+      users[acno] = { acno, username: uname, password: pswd, balance: 0 }
+      return true
+    }
+  }
+
+  login(acno: any, pswd: any) {
+    let users = this.accountDetails;
+
+    if (acno in users) {
+      if (pswd == users[acno]["password"]) {
+        return true;
+      }
+      else {
+        alert("Incorrect Pasword")
+        return false;
+      }
+    }
+    else {
+      alert("invalid Account")
+      return false;
+    }
+  }
 }
+
+
+
+
+
