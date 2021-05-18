@@ -3,7 +3,8 @@
     <div class="row">
         <div class="col-4"></div>
         <div class="col-4">
-
+       
+        <div class="main">
              <h5>{{aim}}</h5>
 
             <!-- <input type="text" id="acno" [value]="accnum"  #accno placeholder="enter account number"><br>
@@ -13,10 +14,13 @@
 
 
             <input type="text" id="acno"   [(ngModel)]="acno" placeholder="enter account number"><br>
-            <input type="text" id="pwd" [(ngModel)]="pswd"   placeholder="enter password">
-            <button class="btn btn-success" (click)="login()">login</button>
-            <button class="btn btn-success" (click)="login()">Create New Account</button>
-
+            <input type="text" id="pwd" [(ngModel)]="pswd"   placeholder="enter password"><br>
+            <button class="btn btn-success" (click)="login()">login</button><br>
+             <div>
+              <p> new user? </p>
+             </div>  
+            <button class="btn btn-success" (click)="register()">Create New Account</button>
+        </div>
 
         </div>
         <div class="col-4"></div>

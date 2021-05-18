@@ -1,1 +1,5 @@
-/* You can add global styles to this file, and also import other style files */
+.main{
+      background-color: cornsilk;
+      border:2px solid royalblue;
+      text-align: center;
+    }
