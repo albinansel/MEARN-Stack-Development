@@ -9,7 +9,7 @@ export class LoginComponent implements OnInit {
 
   aim = "Your perfect banking partner";
 
-  accnum = "Account number please";
+  acno = "Account number please";
   pswd = "";
 
   accountDetails: any = {
@@ -35,11 +35,11 @@ export class LoginComponent implements OnInit {
   // }
 
 
-  login(a:any,p:any) {
+  login() {
     //  alert("Login Clicked");
 
-    var acno = a.value;
-    var pswd = p.value;
+    var acno = this.acno;
+    var pswd = this.pswd;
     let users = this.accountDetails;
 
     if (acno in users) {

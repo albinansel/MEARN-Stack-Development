@@ -6,11 +6,17 @@
 
              <h5>{{aim}}</h5>
 
-            <input type="text" id="acno" [value]="accnum"  #accno placeholder="enter account number"><br>
+            <!-- <input type="text" id="acno" [value]="accnum"  #accno placeholder="enter account number"><br>
             <input type="text" id="pwd"  #pswd placeholder="enter password">
             <button class="btn btn-success" (click)="login(accno,pswd)">login</button><br><br>
+            <input  type="button" class="btn btn-success" value="Create New Account"> -->
 
-            <input  type="button" class="btn btn-success" value="Create New Account">
+
+            <input type="text" id="acno"   [(ngModel)]="acno" placeholder="enter account number"><br>
+            <input type="text" id="pwd" [(ngModel)]="pswd"   placeholder="enter password">
+            <button class="btn btn-success" (click)="login()">login</button>
+            <button class="btn btn-success" (click)="login()">Create New Account</button>
+
 
         </div>
         <div class="col-4"></div>
