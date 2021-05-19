@@ -6,16 +6,15 @@
 
             <div class="main">
 
-                <h5>Cash Deposit</h5>
+                <h5>Deposit Form</h5>
+             <form (ngSubmit)="deposit()">
+                <input type="text" id="acno" name="acno" [(ngModel)]="dAcno" placeholder="enter account number"><br>
+                <input type="text" id="pwd" name="pswd" [(ngModel)]="dPswd" placeholder="enter password"><br>
+                <input type="text" id="amt" name="amt" [(ngModel)]="dAmt" placeholder="enter Amount"><br>
 
-                <input type="text" id="acno" [(ngModel)]="acno" placeholder="enter account number"><br>
-                <input type="text" id="pwd" [(ngModel)]="pswd" placeholder="enter password"><br>
-                <input type="text" id="amt" [(ngModel)]="amt" placeholder="enter Amount"><br>
-
-                <button class="btn btn-success" (click)="deposit()">Deposit</button><br>
-                <div>
-                </div>
-
+                <input type="submit" class="btn btn-success" value="Deposit"><br>
+                
+            </form>
             </div>
             <div class="col-4"></div>
         </div>
@@ -27,16 +26,17 @@
 
             <div class="main">
 
-                <h5>Cash Withdrawal</h5>
+                <h5> Withdraw Form</h5>
 
+                <form (ngSubmit)="withdrawal()">
 
-                <input type="text" id="acno1" [(ngModel)]="acno1" placeholder="enter account number"><br>
-                <input type="text" id="pwd1" [(ngModel)]="pswd1" placeholder="enter password"><br>
-                <input type="text" id="amt1" [(ngModel)]="amt1" placeholder="enter Amount"><br>
+                <input type="text" id="acno1"  name="acno" [(ngModel)]="wAcno" placeholder="enter account number"><br>
+                <input type="text" id="pwd1" name="pswd" [(ngModel)]="wPswd" placeholder="enter password"><br>
+                <input type="text" id="amt1"name="amt" [(ngModel)]="wAmt" placeholder="enter Amount"><br>
 
-                <button class="btn btn-success" (click)="withdrawal()">Withdrawal</button><br>
-                <div>
-                </div>
+                <input type="submit" class="btn btn-success" value="Withdrawal"><br>
+                           
+            </form>
 
             </div>
             <div class="col-4"></div>
