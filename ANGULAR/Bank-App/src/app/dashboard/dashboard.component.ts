@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { FormBuilder, Validators } from '@angular/forms';
 import { DataService } from '../services/data.service';
 
 @Component({
@@ -8,45 +9,71 @@ import { DataService } from '../services/data.service';
 })
 export class DashboardComponent implements OnInit {
 
-  dAmt='';
-  dAcno='';
-  dPswd='';
+  // dAmt='';
+  // dAcno='';
+  // dPswd='';
 
-  wAmt='';
-  wAcno='';
-  wPswd='';
+  // wAmt='';
+  // wAcno='';
+  // wPswd='';
 
-  constructor(private dataservice:DataService) { }
+  depositForm = this.fb.group({
+    dAcno: ['', [Validators.required, Validators.minLength(4), Validators.pattern('[0-9]*')]],
+    dPswd: ['', [Validators.required, Validators.pattern('[a-zA-Z0-9]*')]],
+    dAmt: ['', [Validators.required, Validators.pattern('[0-9]*')]]
+  })
+
+  withdrawForm = this.fb.group({
+    wAcno: ['', [Validators.required, Validators.minLength(4), Validators.pattern('[0-9]*')]],
+    wPswd: ['', [Validators.required, Validators.pattern('[a-zA-Z0-9]*')]],
+    wAmt: ['', [Validators.required, Validators.pattern('[0-9]*')]]
+
+  })
+
+
+  constructor(private dataservice: DataService, private fb: FormBuilder) { }
 
   ngOnInit(): void {
   }
 
- deposit(){
-   var accno=this.dAcno;
-   var pswd=this.dPswd;
-   var amount=this.dAmt;
-
-   const result=this.dataservice.deposit(accno,pswd,amount)
-
-   if (result){
-      alert("the given amount "+amount+" has been credited... and the new balance is "+result);
-   }
- 
- }
-
- withdrawal(){
-  var accno=this.wAcno;
-  var pswd=this.wPswd;
-  var amount=this.wAmt;
-  const result=this.dataservice.withdrawal(accno,pswd,amount)
-
-  if (result){
-    alert("the given amount "+amount+" has been debited... and the new balance is "+result);
- }
+  deposit() {
+    if (this.depositForm.valid) {
 
 
+      var accno = this.depositForm.value.dAcno;
+      var pswd = this.depositForm.value.dPswd;
+      var amount = this.depositForm.value.dAmt;
 
- }
+      const result = this.dataservice.deposit(accno, pswd, amount)
+
+      if (result) {
+        alert("the given amount " + amount + " has been credited... and the new balance is " + result);
+      }
+    }
+    else {
+      alert("invalid form")
+    }
+  }
+
+  withdrawal() {
+
+    if (this.withdrawForm.valid) {
+
+      var accno = this.withdrawForm.value.wAcno;
+      var pswd = this.withdrawForm.value.wPswd;
+      var amount = this.withdrawForm.value.wAmt;
+      const result = this.dataservice.withdrawal(accno, pswd, amount)
+
+      if (result) {
+        alert("the given amount " + amount + " has been debited... and the new balance is " + result);
+      }
+      
+    }
+    else {
+      alert("invalid form")
+
+    }
 
 
+  }
 }

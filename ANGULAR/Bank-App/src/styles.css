@@ -7,4 +7,8 @@
        background-color: floralwhite;
       border:2px solid royalblue;
       text-align: center;
-    }
+}
+
+.error{
+      color: crimson;
+}    
