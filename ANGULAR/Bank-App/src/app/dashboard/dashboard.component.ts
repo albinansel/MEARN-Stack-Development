@@ -30,6 +30,7 @@ export class DashboardComponent implements OnInit {
 
   })
 
+  user=this.dataservice.currentUser;
 
   constructor(private dataservice: DataService, private fb: FormBuilder) { }
 
