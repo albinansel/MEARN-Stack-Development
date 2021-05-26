@@ -1,5 +1,8 @@
 const express= require('express');
+const dataservice = require('./services/data.service')
 const app= express();
+
+app.use(express.json());
 
 //GET - READ
 app.get('/',(req,res)=>{
@@ -10,6 +13,28 @@ app.get('/',(req,res)=>{
 app.post('/',(req,res)=>{
     res.send("THIS IS A POST METHOD");
 });
+
+
+
+
+//POST - CREATE
+app.post('/register',(req,res)=>{
+    console.log(req.body);
+    const result= dataservice.register(req.body.uname,req.body.acno,req.body.pswd)
+    res.status(result.statusCode).json(result)
+    // console.log( res.status(result.statusCode).json(result));
+});
+
+//POST - CREATE
+app.post('/login',(req,res)=>{
+    console.log(req.body);
+    const result= dataservice.login(req.body.acno,req.body.pswd)
+    res.status(result.statusCode).json(result)
+    // console.log( res.status(result.statusCode).json(result));
+});
+
+
+
 
 //PUT - UPDATE/MODIFY WHOLE
 app.put('/',(req,res)=>{
