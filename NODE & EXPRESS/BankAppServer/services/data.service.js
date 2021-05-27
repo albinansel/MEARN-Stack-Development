@@ -33,7 +33,7 @@ const login = (acno, pswd) => {
 
     if (acno in users) {
         if (pswd == users[acno]["password"]) {
-            currentUser = users[acno]["username"]
+            // req.session.currentUser = users[acno]
             return {
                 statusCode: 200,
                 status: true,
@@ -60,7 +60,101 @@ const login = (acno, pswd) => {
 
 
 
+const deposit = (acno, pswd, amt) => {
+
+    //    if(!req.session.currentUser){
+    //        return{
+    //         statusCode: 401,
+    //         status: false,
+    //         message: "pease login"
+    //        }
+    //    }
+
+    var amount = parseInt(amt);
+    let user = accountDetails;
+
+    if (acno in user) {
+        if (pswd == user[acno]["password"]) {
+
+            user[acno]["balance"] += amount;
+            return {
+                statusCode: 200,
+                status: true,
+                balance: user[acno]["balance"],
+                message: amount + " is credited and the new balance is " + user[acno]["balance"]
+            }
+
+        }
+        else {
+            return {
+                statusCode: 422,
+                status: false,
+                message: "Incorrect Password"
+            }
+
+        }
+    }
+    else {
+        return {
+            statusCode: 422,
+            status: false,
+            message: "Invalid Account"
+        }
+    }
+}
+
+
+const withdrawal = (acno, pswd, amt) => {
+
+    var amount = parseInt(amt);
+    let user = accountDetails;
+    if (acno in user) {
+        if (pswd == user[acno]["password"]) {
+
+            if (user[acno]["balance"] > amount) {
+                user[acno]["balance"] -= amount;
+                return {
+                    statusCode: 200,
+                    status: true,
+                    balance: user[acno]["balance"],
+                    message: amount + " is debited and the new balance is " + user[acno]["balance"]
+                }
+            }
+            else {
+                return {
+                    statusCode: 422,
+                    status: false,
+                    message: "Insufficient balance"
+                }
+            }
+        }
+        else {
+            return {
+                statusCode: 422,
+                status: false,
+                message: "Incorrect Password"
+            }
+        }
+    }
+    else {
+        return {
+            statusCode: 422,
+            status: false,
+            message: "invalid Account"
+        }
+    }
+
+}
+
+
+
+
+
+
+
 module.exports = {
     register,
-    login
+    login,
+    deposit,
+    withdrawal
 }

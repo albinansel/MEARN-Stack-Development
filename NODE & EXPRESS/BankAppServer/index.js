@@ -1,6 +1,13 @@
 const express= require('express');
-const dataservice = require('./services/data.service')
+const session =require('express-session');
+const dataservice = require('./services/data.service');
 const app= express();
+
+app.use(session({
+    secret: 'randomsecurestring',
+    resave: false,
+    saveUninitialized: false
+}));
 
 app.use(express.json());
 
@@ -32,6 +39,26 @@ app.post('/login',(req,res)=>{
     res.status(result.statusCode).json(result)
     // console.log( res.status(result.statusCode).json(result));
 });
+
+
+//POST - CREATE
+app.post('/deposit',(req,res)=>{
+    console.log(req.body);
+    const result= dataservice.deposit(req.body.acno,req.body.pswd,req.body.amount)
+    res.status(result.statusCode).json(result)
+    // console.log( res.status(result.statusCode).json(result));
+});
+
+
+
+//POST - CREATE
+app.post('/withdraw',(req,res)=>{
+    console.log(req.body);
+    const result= dataservice.withdrawal(req.body.acno,req.body.pswd,req.body.amount)
+    res.status(result.statusCode).json(result)
+    // console.log( res.status(result.statusCode).json(result));
+});
+
 
 
 
