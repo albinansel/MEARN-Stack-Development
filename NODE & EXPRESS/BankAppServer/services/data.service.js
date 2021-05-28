@@ -28,12 +28,12 @@ const register = (uname, acno, pswd) => {
 }
 
 
-const login = (acno, pswd) => {
+const login = (req, acno, pswd) => {
     let users = accountDetails;
 
     if (acno in users) {
         if (pswd == users[acno]["password"]) {
-            // req.session.currentUser = users[acno]
+            req.session.currentUser = user[acno]
             return {
                 statusCode: 200,
                 status: true,
@@ -60,15 +60,15 @@ const login = (acno, pswd) => {
 
 
 
-const deposit = (acno, pswd, amt) => {
+const deposit = (req, acno, pswd, amt) => {
 
-    //    if(!req.session.currentUser){
-    //        return{
-    //         statusCode: 401,
-    //         status: false,
-    //         message: "pease login"
-    //        }
-    //    }
+       if(!req.session.currentUser){
+           return{
+            statusCode: 401,
+            status: false,
+            message: "please login"
+           }
+       }
 
     var amount = parseInt(amt);
     let user = accountDetails;

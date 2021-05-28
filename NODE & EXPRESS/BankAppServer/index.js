@@ -1,5 +1,5 @@
 const express= require('express');
-const session =require('express-session');
+const session = require('express-session');
 const dataservice = require('./services/data.service');
 const app= express();
 
@@ -35,7 +35,7 @@ app.post('/register',(req,res)=>{
 //POST - CREATE
 app.post('/login',(req,res)=>{
     console.log(req.body);
-    const result= dataservice.login(req.body.acno,req.body.pswd)
+    const result= dataservice.login(req,req.body.acno,req.body.pswd)
     res.status(result.statusCode).json(result)
     // console.log( res.status(result.statusCode).json(result));
 });
@@ -43,8 +43,9 @@ app.post('/login',(req,res)=>{
 
 //POST - CREATE
 app.post('/deposit',(req,res)=>{
+    console.log(req.session.currentUser)
     console.log(req.body);
-    const result= dataservice.deposit(req.body.acno,req.body.pswd,req.body.amount)
+    const result= dataservice.deposit(req,req.body.acno,req.body.pswd,req.body.amount)
     res.status(result.statusCode).json(result)
     // console.log( res.status(result.statusCode).json(result));
 });
