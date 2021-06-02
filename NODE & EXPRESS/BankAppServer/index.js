@@ -86,8 +86,10 @@ app.post('/login',(req,res)=>{
 app.post('/deposit',authMiddleware,(req,res)=>{
     console.log(req.session.currentUser)
     // console.log(req.body);
-    const result= dataservice.deposit(req.body.acno,req.body.pswd,req.body.amount)
-    res.status(result.statusCode).json(result)
+    dataservice.deposit(req.body.acno,req.body.pswd,req.body.amount)
+    .then(result=>{
+         res.status(result.statusCode).json(result)
+     })
     // console.log( res.status(result.statusCode).json(result));
 });
 
@@ -96,8 +98,10 @@ app.post('/deposit',authMiddleware,(req,res)=>{
 //POST - CREATE
 app.post('/withdraw',authMiddleware,(req,res)=>{
     // console.log(req.body);
-    const result= dataservice.withdrawal(req.body.acno,req.body.pswd,req.body.amount)
-    res.status(result.statusCode).json(result)
+    dataservice.withdrawal(req.body.acno,req.body.pswd,req.body.amount)
+    .then(result=>{
+        res.status(result.statusCode).json(result)
+    })
     // console.log( res.status(result.statusCode).json(result));
 });
 
