@@ -30,9 +30,11 @@ export class DashboardComponent implements OnInit {
 
   })
 
-  user=this.dataservice.currentUser;
+  user:any;
 
-  constructor(private dataservice: DataService, private fb: FormBuilder) { }
+  constructor(private dataservice: DataService, private fb: FormBuilder) { 
+    this.user=localStorage.getItem("name")
+  }
 
   ngOnInit(): void {
   }

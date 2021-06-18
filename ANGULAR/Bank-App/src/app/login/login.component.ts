@@ -14,36 +14,51 @@ export class LoginComponent implements OnInit {
   // acno = "Account number please";
   // pswd = "";
 
-  loginForm=this.fb.group({
+  loginForm = this.fb.group({
     acno: ['', [Validators.required, Validators.minLength(4), Validators.pattern('[0-9]*')]],
     pswd: ['', [Validators.required, Validators.pattern('[a-zA-Z0-9]*')]]
 
   })
 
-  constructor(private router:Router, private dataService:DataService, private fb:FormBuilder) { }
+  constructor(private router: Router, private dataService: DataService, private fb: FormBuilder) { }
 
   ngOnInit(): void {
   }
 
-  
+
   login() {
 
-    if(this.loginForm.valid){
-    var acno = this.loginForm.value.acno;
-    var pswd = this.loginForm.value.pswd;
-    const result=this.dataService.login(acno,pswd)
-    if(result){
-      alert("Login Successful")
-      this.router.navigateByUrl("dashboard")
+    if (this.loginForm.valid) {
+      var acno = this.loginForm.value.acno;
+      var pswd = this.loginForm.value.pswd;
+
+      // const result=this.dataService.login(acno,pswd)
+      // if(result){
+      //   alert("Login Successful")
+      //   this.router.navigateByUrl("dashboard")
+      // }
+
+      this.dataService.login(acno, pswd)
+        .subscribe((result: any) => {
+          if (result) {
+            alert(result.message);
+            localStorage.setItem("name",result.name);
+            this.router.navigateByUrl("dashboard");
+          }
+        },
+          (result) => {
+            alert(result.error.message);
+          })
+
     }
-    else{
+    else {
       alert("invalid FORM")
-    }
     }
   }
 
 
-  register(){
+
+  register() {
     this.router.navigateByUrl("register")
   }
 

@@ -1,7 +1,13 @@
 const express= require('express');
 const session = require('express-session');
+const cors = require('cors');
 const dataservice = require('./services/data.service');
 const app= express();
+
+app.use(cors({
+    origin: 'http://localhost:4200',
+    credentials:true
+}))
 
 app.use(session({
     secret: 'randomsecurestring',
@@ -29,7 +35,7 @@ const logMiddleware =(req,res,next)=>{
     console.log(req.body);
     next();
 }
-app.use(logMiddleware);
+//app.use(logMiddleware);
 
 
 const authMiddleware = (req,res,next)=>{

@@ -1,3 +1,4 @@
+import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 
 @Injectable({
@@ -16,7 +17,7 @@ export class DataService {
 
 
 
-  constructor() {
+  constructor(private http:HttpClient) {
     this.getDetails()
    }
 
@@ -40,35 +41,51 @@ export class DataService {
 
 
   register(uname: any, acno: any, pswd: any) {
-    let users = this.accountDetails;
-    if (acno in users) {
-      return false
+
+    const data={
+      uname,
+      acno,
+      pswd
     }
-    else {
-      users[acno] = { acno, username: uname, password: pswd, balance: 0 }
-      this.saveDetails();
-      return true
-    }
+     return this.http.post("http://localhost:3000/register",data || '')
+     
+    // let users = this.accountDetails;
+    // if (acno in users) {
+    //   return false
+    // }
+    // else {
+    //   users[acno] = { acno, username: uname, password: pswd, balance: 0 }
+    //   this.saveDetails();
+    //   return true
+    // }
   }
 
   login(acno: any, pswd: any) {
-    let users = this.accountDetails;
 
-    if (acno in users) {
-      if (pswd == users[acno]["password"]) {
-        this.currentUser=users[acno]["username"]
-        this.saveDetails();
-        return true;
-      }
-      else {
-        alert("Incorrect Pasword")
-        return false;
-      }
-    }
-    else {
-      alert("invalid Account")
-      return false;
-    }
+    const data={
+      acno,
+      pswd
+    }    
+    return this.http.post("http://localhost:3000/login",data || '')
+
+
+    // let users = this.accountDetails;
+
+    // if (acno in users) {
+    //   if (pswd == users[acno]["password"]) {
+    //     this.currentUser=users[acno]["username"]
+    //     this.saveDetails();
+    //     return true;
+    //   }
+    //   else {
+    //     alert("Incorrect Pasword")
+    //     return false;
+    //   }
+    // }
+    // else {
+    //   alert("invalid Account")
+    //   return false;
+    // }
   }
 
 
