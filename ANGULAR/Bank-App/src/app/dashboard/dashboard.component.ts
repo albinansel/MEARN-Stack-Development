@@ -30,10 +30,10 @@ export class DashboardComponent implements OnInit {
 
   })
 
-  user:any;
+  user: any;
 
-  constructor(private dataservice: DataService, private fb: FormBuilder) { 
-    this.user=localStorage.getItem("name")
+  constructor(private dataservice: DataService, private fb: FormBuilder) {
+    this.user = localStorage.getItem("name")
   }
 
   ngOnInit(): void {
@@ -42,16 +42,26 @@ export class DashboardComponent implements OnInit {
   deposit() {
     if (this.depositForm.valid) {
 
-
       var accno = this.depositForm.value.dAcno;
       var pswd = this.depositForm.value.dPswd;
       var amount = this.depositForm.value.dAmt;
 
-      const result = this.dataservice.deposit(accno, pswd, amount)
+      // const result = this.dataservice.deposit(accno, pswd, amount)
+      // if (result) {
+      //   alert("the given amount " + amount + " has been credited... and the new balance is " + result);
+      // }
 
-      if (result) {
-        alert("the given amount " + amount + " has been credited... and the new balance is " + result);
-      }
+      this.dataservice.deposit(accno, pswd, amount)
+
+        .subscribe((result: any) => {
+          if (result) {
+            alert(result.message);
+          }
+        },
+          (result: any) => {
+            alert(result.error.message);
+          })
+
     }
     else {
       alert("invalid form")
@@ -60,17 +70,31 @@ export class DashboardComponent implements OnInit {
 
   withdrawal() {
 
+    var accno = this.withdrawForm.value.wAcno;
+    var pswd = this.withdrawForm.value.wPswd;
+    var amount = this.withdrawForm.value.wAmt;
+
+
     if (this.withdrawForm.valid) {
 
-      var accno = this.withdrawForm.value.wAcno;
-      var pswd = this.withdrawForm.value.wPswd;
-      var amount = this.withdrawForm.value.wAmt;
-      const result = this.dataservice.withdrawal(accno, pswd, amount)
+      // const result = this.dataservice.withdrawal(accno, pswd, amount)
 
-      if (result) {
-        alert("the given amount " + amount + " has been debited... and the new balance is " + result);
-      }
-      
+      // if (result) {
+      //   alert("the given amount " + amount + " has been debited... and the new balance is " + result);
+      // }
+
+      this.dataservice.withdrawal(accno, pswd, amount)
+       
+      .subscribe((result: any) => {
+        if (result) {
+          alert(result.message);
+        }
+      },
+        (result: any) => {
+          alert(result.error.message);
+        })
+
+
     }
     else {
       alert("invalid form")

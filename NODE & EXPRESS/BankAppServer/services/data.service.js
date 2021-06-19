@@ -62,7 +62,7 @@ const login = (req, acno, password) => {
     .then(user=>{
         
         if (user) {
-            req.session.currentUser = user;
+            req.session.currentUser = user.acno;
             return {
                 statusCode: 200,
                 status: true,
@@ -164,7 +164,7 @@ const deposit = (acno, password, amt) => {
 }
 
 
-const withdrawal = (acno, password, amt) => {
+const withdrawal = (req, acno, password, amt) => {
 
     var amount = parseInt(amt);
 
@@ -178,6 +178,15 @@ const withdrawal = (acno, password, amt) => {
                 message: "Invalid Credentials"
             }            
         }
+
+        if(req.session.currentUser != acno){
+            return {
+                statusCode: 422,
+                status: false,
+                message: "Permission Denied"
+            }    
+        }
+
 
         if(user.balance<amount){
             return {

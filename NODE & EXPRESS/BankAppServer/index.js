@@ -104,7 +104,7 @@ app.post('/deposit',authMiddleware,(req,res)=>{
 //POST - CREATE
 app.post('/withdraw',authMiddleware,(req,res)=>{
     // console.log(req.body);
-    dataservice.withdrawal(req.body.acno,req.body.pswd,req.body.amount)
+    dataservice.withdrawal(req,req.body.acno,req.body.pswd,req.body.amount)
     .then(result=>{
         res.status(result.statusCode).json(result)
     })

@@ -1,6 +1,10 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 
+const options={
+  withCredentials:true
+}
+
 @Injectable({
   providedIn: 'root'
 })
@@ -66,7 +70,7 @@ export class DataService {
       acno,
       pswd
     }    
-    return this.http.post("http://localhost:3000/login",data || '')
+    return this.http.post("http://localhost:3000/login",data,options)
 
 
     // let users = this.accountDetails;
@@ -89,57 +93,73 @@ export class DataService {
   }
 
 
-  deposit(acno: any, pswd: any, amt: any) {
+  deposit(acno: any, pswd: any, amount: any) {
 
-    var amount = parseInt(amt);
-    let user = this.accountDetails;
+    const data={
+      acno,
+      pswd,
+      amount
+    }    
+    return this.http.post("http://localhost:3000/deposit",data,options )
 
-    if (acno in user) {
-      if (pswd == user[acno]["password"]) {
+    // var amount = parseInt(amt);
+    // let user = this.accountDetails;
 
-        user[acno]["balance"] += amount;
-        this.saveDetails();
-        return user[acno]["balance"];
-      }
-      else {
-        alert("Incorrect Pasword")
-        return false;
-      }
-    }
-    else {
-      alert("invalid Account")
-      return false;
-    }
+    // if (acno in user) {
+    //   if (pswd == user[acno]["password"]) {
+
+    //     user[acno]["balance"] += amount;
+    //     this.saveDetails();
+    //     return user[acno]["balance"];
+    //   }
+    //   else {
+    //     alert("Incorrect Pasword")
+    //     return false;
+    //   }
+    // }
+    // else {
+    //   alert("invalid Account")
+    //   return false;
+    // }
   }
 
 
-  withdrawal(acno: any, pswd: any, amt: any) {
+  withdrawal(acno: any, pswd: any, amount: any) {
 
-    var amount = parseInt(amt);
-    let user = this.accountDetails;
-    if (acno in user) {
-      if (pswd == user[acno]["password"]) {
+    const data={
+      acno,
+      pswd,
+      amount
+    }    
+    return this.http.post("http://localhost:3000/withdraw",data,options )
 
-        if (user[acno]["balance"] > amount) {
-          user[acno]["balance"] -= amount;
-          this.saveDetails();
-          return user[acno]["balance"];
 
-        }
-        else {
-          alert("Insufficient balance")
-          return false;
-        }
-      }
-      else {
-        alert("Incorrect Pasword")
-        return false;
-      }
-    }
-    else {
-      alert("invalid Account")
-      return false;
-    }
+
+    // var amount = parseInt(amt);
+    // let user = this.accountDetails;
+    // if (acno in user) {
+    //   if (pswd == user[acno]["password"]) {
+
+    //     if (user[acno]["balance"] > amount) {
+    //       user[acno]["balance"] -= amount;
+    //       this.saveDetails();
+    //       return user[acno]["balance"];
+
+    //     }
+    //     else {
+    //       alert("Insufficient balance")
+    //       return false;
+    //     }
+    //   }
+    //   else {
+    //     alert("Incorrect Pasword")
+    //     return false;
+    //   }
+    // }
+    // else {
+    //   alert("invalid Account")
+    //   return false;
+    // }
 
   }
 
