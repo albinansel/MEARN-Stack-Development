@@ -67,7 +67,8 @@ const login = (req, acno, password) => {
                 statusCode: 200,
                 status: true,
                 message: "Sucessfully Login",
-                name: user.username
+                name: user.username,
+                acno: user.acno
             }            
         }
         else {

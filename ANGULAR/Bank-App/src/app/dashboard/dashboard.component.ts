@@ -31,6 +31,7 @@ export class DashboardComponent implements OnInit {
   })
 
   user: any;
+  acno: any;
 
   constructor(private dataservice: DataService, private fb: FormBuilder) {
     this.user = localStorage.getItem("name")
@@ -100,7 +101,10 @@ export class DashboardComponent implements OnInit {
       alert("invalid form")
 
     }
-
-
   }
+
+ deleteAcc(){
+   this.acno=localStorage.getItem("acno")
+ }
+
 }
