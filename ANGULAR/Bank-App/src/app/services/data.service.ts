@@ -163,6 +163,12 @@ export class DataService {
 
   }
 
+  deleteAccDetails(acno:any){
+    // console.log(acno);                   for checking
+    
+    return this.http.delete("http://localhost:3000/deleteAccDetails/"+acno,options )
+  }
+
 }
 
 

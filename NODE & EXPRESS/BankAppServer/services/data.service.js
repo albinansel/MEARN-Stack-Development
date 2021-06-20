@@ -247,7 +247,26 @@ const withdrawal = (req, acno, password, amt) => {
 }
 
 
+const deleteAccDetails=(acno)=>{
+    return db.User.deleteOne({
+        acno:acno
+    }).then(user=>{
+        
+        if (!user) {
+            return {
+                statusCode: 422,
+                status: false,
+                message: "Operation Failed"
+            }            
+        }
+        return {
+            statusCode: 200,
+            status: true,
+            message: "Account number "+acno +" deleted successfully",
+        }   
 
+    })
+}
 
 
 
@@ -256,5 +275,7 @@ module.exports = {
     register,
     login,
     deposit,
-    withdrawal
+    withdrawal,
+    deleteAccDetails
+    
 }

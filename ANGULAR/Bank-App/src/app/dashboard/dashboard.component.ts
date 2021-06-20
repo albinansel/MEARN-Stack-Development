@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
 import { DataService } from '../services/data.service';
 
 @Component({
@@ -33,7 +34,7 @@ export class DashboardComponent implements OnInit {
   user: any;
   acno: any;
 
-  constructor(private dataservice: DataService, private fb: FormBuilder) {
+  constructor(private dataservice: DataService, private fb: FormBuilder, private router:Router) {
     this.user = localStorage.getItem("name")
   }
 
@@ -85,15 +86,15 @@ export class DashboardComponent implements OnInit {
       // }
 
       this.dataservice.withdrawal(accno, pswd, amount)
-       
-      .subscribe((result: any) => {
-        if (result) {
-          alert(result.message);
-        }
-      },
-        (result: any) => {
-          alert(result.error.message);
-        })
+
+        .subscribe((result: any) => {
+          if (result) {
+            alert(result.message);
+          }
+        },
+          (result: any) => {
+            alert(result.error.message);
+          })
 
 
     }
@@ -103,8 +104,22 @@ export class DashboardComponent implements OnInit {
     }
   }
 
- deleteAcc(){
-   this.acno=localStorage.getItem("acno")
- }
+  onDelete(event: any) {
+    this.dataservice.deleteAccDetails(event)
+      .subscribe((result: any) => {
+        if (result) {
+          alert(result.message)
+          this.router.navigateByUrl("")
+        }
+      },
+      (result: any) => {
+          alert(result.error.message)
+      })
+  }
+
+
+  deleteAcc() {
+    this.acno = localStorage.getItem("acno")
+  }
 
 }

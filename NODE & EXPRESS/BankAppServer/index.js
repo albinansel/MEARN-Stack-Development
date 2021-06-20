@@ -131,6 +131,14 @@ app.delete('/',(req,res)=>{
 });
 
 
+//DELETE - Account
+app.delete('/deleteAccDetails/:acno',authMiddleware, (req,res)=>{
+    dataservice.deleteAccDetails(req.params.acno)
+    .then(result=>{
+        res.status(result.statusCode).json(result)
+    })    
+});
+
 
 app.listen(3000,()=>{
      console.log("Server Started at port: 3000");
