@@ -1,8 +1,13 @@
 <div class="container">
+    <h1>Welcome {{user}}</h1><br>
+    <h4>Login Details (Unformated) : {{lDate}}</h4>
+    <h4>Login Details (Formated)   : {{lDate | date | uppercase}}</h4>
+    <h4>Login Details (Formated)   : {{lDate | date : 'medium'}}</h4>
+
     <div class="row">
         <div class="col-4"></div>
         <div class="col-4">
-            <h3>Welcome {{user}}</h3>
+            <!-- <h3>Welcome {{user}}</h3> -->
 
             <div class="main">
 
@@ -51,10 +56,10 @@
 
             
             </div>
-            <br><br>
+            <br>
             <app-delete-confirmation (onDelete)="onDelete($event)"  (onCancel)="onCancel()"  [item]="acno"></app-delete-confirmation>
 
-            <br><br>
+            <br>
             <button class="btn btn-success" (click)="deleteAcc()">Delete Account</button>
 
             <div class="col-4"></div>

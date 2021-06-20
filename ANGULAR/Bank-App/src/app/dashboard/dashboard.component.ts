@@ -33,6 +33,7 @@ export class DashboardComponent implements OnInit {
 
   user: any;
   acno: any;
+  lDate: Date=new Date()
 
   constructor(private dataservice: DataService, private fb: FormBuilder, private router:Router) {
     this.user = localStorage.getItem("name")
