@@ -118,6 +118,10 @@ export class DashboardComponent implements OnInit {
   }
 
 
+  onCancel(){
+    this.acno=""
+  }
+
   deleteAcc() {
     this.acno = localStorage.getItem("acno")
   }

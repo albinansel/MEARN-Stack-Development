@@ -52,7 +52,7 @@
             
             </div>
             <br><br>
-            <app-delete-confirmation (onDelete)="onDelete($event)" [item]="acno"></app-delete-confirmation>
+            <app-delete-confirmation (onDelete)="onDelete($event)"  (onCancel)="onCancel()"  [item]="acno"></app-delete-confirmation>
 
             <br><br>
             <button class="btn btn-success" (click)="deleteAcc()">Delete Account</button>

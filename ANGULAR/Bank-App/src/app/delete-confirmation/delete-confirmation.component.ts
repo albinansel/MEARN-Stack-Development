@@ -12,6 +12,9 @@ export class DeleteConfirmationComponent implements OnInit {
 
   @Output() onDelete = new EventEmitter;
 
+  @Output() onCancel = new EventEmitter;
+
+
   constructor() { }
 
   ngOnInit(): void {
@@ -22,9 +25,11 @@ export class DeleteConfirmationComponent implements OnInit {
   delete(){
     alert("Deleting........")
     this.onDelete.emit(this.item)
+  }
 
-    
-    
+  cancel(){
+    alert("Cancelling....")
+    this.onCancel.emit()
   }
 
 }
