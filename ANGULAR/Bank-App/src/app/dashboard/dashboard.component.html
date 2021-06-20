@@ -9,10 +9,12 @@
         <div class="col-4">
             <!-- <h3>Welcome {{user}}</h3> -->
 
-            <div class="main">
+            <div [ngClass]="acno?'style1':'' " class="main">
 
                 <h5>Deposit Form</h5>
+
              <form [formGroup]="depositForm" (ngSubmit)="deposit()">
+                
                 <input type="text" id="acno" name="acno" formControlName="dAcno" placeholder="enter account number"><br>
                 <div *ngIf="(depositForm.get('dAcno')?.touched || depositForm.get('dAcno')?.dirty) && depositForm.get('dAcno')?.errors" class="error">invalid account number</div>
 
@@ -34,7 +36,7 @@
         <div class="col-4"></div>
         <div class="col-4">
 
-            <div class="main">
+            <div [ngClass]="acno?'style1':'' " class="main">
 
                 <h5> Withdraw Form</h5>
 
