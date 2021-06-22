@@ -1,10 +1,14 @@
 .bg{
-    background-color: cornsilk;
+    background-color: white;
+    background-image: url(assets/bgimg.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+
 }
 
 .main{
-      margin-top: 50px;
-       background-color: floralwhite;
+      margin-top: 30px;
+       background-color: white;
       border:2px solid royalblue;
       text-align: center;
 }
