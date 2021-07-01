@@ -1,5 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { environment } from '../../environments/environment';
 
 const options={
   withCredentials:true
@@ -51,7 +52,7 @@ export class DataService {
       acno,
       pswd
     }
-     return this.http.post("http://localhost:3000/register",data || '')
+     return this.http.post(environment.apiUrl+"/register",data)
      
     // let users = this.accountDetails;
     // if (acno in users) {
@@ -70,7 +71,7 @@ export class DataService {
       acno,
       pswd
     }    
-    return this.http.post("http://localhost:3000/login",data,options)
+    return this.http.post(environment.apiUrl+"/login",data,options)
 
 
     // let users = this.accountDetails;
@@ -100,7 +101,7 @@ export class DataService {
       pswd,
       amount
     }    
-    return this.http.post("http://localhost:3000/deposit",data,options )
+    return this.http.post(environment.apiUrl+"/deposit",data,options )
 
     // var amount = parseInt(amt);
     // let user = this.accountDetails;
@@ -131,7 +132,7 @@ export class DataService {
       pswd,
       amount
     }    
-    return this.http.post("http://localhost:3000/withdraw",data,options )
+    return this.http.post(environment.apiUrl+"/withdraw",data,options )
 
 
 
@@ -166,7 +167,7 @@ export class DataService {
   deleteAccDetails(acno:any){
     // console.log(acno);                   for checking
     
-    return this.http.delete("http://localhost:3000/deleteAccDetails/"+acno,options )
+    return this.http.delete(environment.apiUrl+"/deleteAccDetails/"+acno,options )
   }
 
 }

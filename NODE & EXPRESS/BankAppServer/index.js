@@ -5,7 +5,13 @@ const dataservice = require('./services/data.service');
 const app= express();
 
 app.use(cors({
-    origin: 'http://localhost:4200',
+
+    // origin: 'http://localhost:4200',
+
+      origin: 'http://127.0.0.1:8080',
+
+    //   origin: 'http://192.168.15.184:8080',
+
     credentials:true
 }))
 
